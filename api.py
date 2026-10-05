@@ -21,6 +21,18 @@ class Analysis(BaseModel):
     theme: str
 
 
+@app.get("/reviews")
+def get_reviews():
+    return {
+        "message": "Here are the reviews",
+        "reviews": [
+            "The food was amazing!",
+            "Delivery was very late.",
+            "Good quality for the price."
+        ]
+    }
+
+
 @app.post("/analyze")
 def analyze(review: Review):
 
@@ -43,3 +55,4 @@ Review: {review.text}
     )
 
     return response.parsed
+
